@@ -21,12 +21,7 @@ fun evenStringIndex(numbers: List<String>): List<String> {
  }
  return anotherList
 }
-//fun evenIndeces(): List<String>{
-//  for(string in stringList){
-//
-// }
-//
-//}
+
 //Given a list of people’s heights in metres. Write a function that returns
 //the average height and the total height
 data class SumAndAverageHeights(var sumHeights: Double, var averageHeights: Double)
@@ -82,5 +77,5 @@ fun car():Double{
  return avarage
 }
 
-// var milleage = carList.filter { car -> car.mileage  }
+
 
