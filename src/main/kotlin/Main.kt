@@ -2,8 +2,11 @@ fun main() {
 println(peoplesHeight(listOf(2.1, 3.0, 6.7)))
  println(peoplesHeight(listOf(3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0, 10.0)))
  person()
- var finalList = evenStringIndex(listOf("one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten"))
+ var finalList = evenStringIndex(listOf("Zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten"))
 println(finalList)
+println(car())
+
+
 }
 
 //Given a list of 10 strings, write a function that returns a list of the strings
@@ -12,7 +15,7 @@ println(finalList)
 fun evenStringIndex(numbers: List<String>): List<String> {
  var anotherList = mutableListOf<String>()
  numbers.forEachIndexed { index, number ->
-  if(index % 2 != 0){
+  if(index % 2 == 0){
    anotherList.add(number)
   }
  }
@@ -48,11 +51,15 @@ fun person(){
  val person5 = Person("Novak", 56,1.5,70.0)
  val person6 = Person("Novak", 38,1.5,70.0)
 
- var peopleList = listOf(person1,person2,person3,person4,person5, person6)
+ var peopleList = mutableListOf(person1,person2,person3,person4,person5, person6)
 // println(peopleList)
 
  var sortedages = peopleList.sortedByDescending {person -> person.age }
  println(sortedages)
+ var addpeople =(mutableListOf((Person("Gloorious",31,1.3,49.0)),Person("Naomi",54,4.6,57.8)))
+ var addedpeople = peopleList.addAll(addpeople)
+ println(addedpeople)
+
 }
 
 
@@ -61,13 +68,21 @@ fun person(){
 registration and mileage attribute and returns the average mileage of
 all the vehicles in the list.*/
 data class Car(val registration: String, val mileage: Double)
-fun car(){
+fun car():Double{
  val car1 = Car("KDH-186", 6000.9)
  val car2 = Car("KDH-187", 7000.9)
  val car3 = Car("KDH-156", 9000.9)
  val car4 = Car("KDH-186", 90000.9)
  val car5 = Car("KDH-186", 168000.9)
   var carList = listOf(car1, car2, car3, car4, car5)
-// var milleage = carList.filter { car -> car.mileage }
-
+//carList.filter { car -> car }
+// for (car in carList){
+ var sum = 0.0
+ carList.forEach { car ->
+  sum += (car.mileage) / carList.size
+ }
+ return sum
 }
+
+// var milleage = carList.filter { car -> car.mileage  }
+
