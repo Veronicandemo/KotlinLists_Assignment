@@ -56,9 +56,7 @@ fun person(){
 
  var sortedages = peopleList.sortedByDescending {person -> person.age }
  println(sortedages)
- var addpeople =(mutableListOf((Person("Gloorious",31,1.3,49.0)),Person("Naomi",54,4.6,57.8)))
- var addedpeople = peopleList.addAll(addpeople)
- println(addedpeople)
+
 
 }
 
@@ -77,11 +75,11 @@ fun car():Double{
   var carList = listOf(car1, car2, car3, car4, car5)
 //carList.filter { car -> car }
 // for (car in carList){
- var sum = 0.0
+ var avarage = 0.0
  carList.forEach { car ->
-  sum += (car.mileage) / carList.size
+  avarage += (car.mileage) / carList.size
  }
- return sum
+ return avarage
 }
 
 // var milleage = carList.filter { car -> car.mileage  }
