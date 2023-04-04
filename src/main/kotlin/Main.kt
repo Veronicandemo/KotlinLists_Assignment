@@ -1,16 +1,25 @@
 fun main() {
 println(peoplesHeight(listOf(2.1, 3.0, 6.7)))
  println(peoplesHeight(listOf(3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0, 10.0)))
- person()
+ var peopleList = person(mutableListOf(Person("Novak", 56,1.5,70.0),
+ Person("Marion", 25,1.5,70.0),
+Person("Novak", 28,1.5,70.0)))
  var finalList = evenStringIndex(listOf("Zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten"))
 println(finalList)
-println(car())
+println(car(mutableListOf(Car("KDH-186", 6000),
+        Car("KDH-187", 120000),
+        Car("KDH-156", 130000),
+        Car("KDH-186", 90000),
+ Car("KDH-186", 168000))))
+ twoPeople(mutableListOf(Person("Loice",18,6.1,50.0)))
+ secondOccurenceIndex(listOf(32,33,35,33,37,38,39))
 
 
 }
 
 //Given a list of 10 strings, write a function that returns a list of the strings
 //at even indices i.e index 2,4,6 etc
+
 
 fun evenStringIndex(numbers: List<String>): List<String> {
  var anotherList = mutableListOf<String>()
@@ -38,44 +47,39 @@ fun peoplesHeight(heights: Collection<Double>): SumAndAverageHeights {
 //Given a list of Person objects, each with the attributes, name, age,
 //height and weight. Sort the list in order of descending age
 data class Person(var name: String, var age: Int, var height: Double, var weight: Double)
-fun person(){
- val person1 = Person("Novak", 24,1.5,70.0)
- val person2 = Person("Marion", 25,1.5,70.0)
- val person3 = Person("Novak", 28,1.5,70.0)
- val person4 = Person("Novak", 94,1.5,70.0)
- val person5 = Person("Novak", 56,1.5,70.0)
- val person6 = Person("Novak", 38,1.5,70.0)
-
- var peopleList = mutableListOf(person1,person2,person3,person4,person5, person6)
+fun person(people: List<Person>){
+// var peopleList = mutableListOf(person1,person2,person3)
 // println(peopleList)
-
- var sortedages = peopleList.sortedByDescending {person -> person.age }
- println(sortedages)
-
-
+ println(people.sortedByDescending {person -> person.age })
 }
+//Given a list similar to the one above, write a function in which you will
+//create 2 more people objects and add them to the list at one go.
 
-
+fun twoPeople(listOfEveryone: MutableList<Person>){
+// var otherPeople = mutableListOf<Person>()
+listOfEveryone.addAll(mutableListOf(Person("Vee", 13, 1.6, 65.9),
+Person("Cyntia", 17, 1.9, 60.9)))
+ println(listOfEveryone)
+}
 
 /*Write a function that takes in a list of Car objects each with a
 registration and mileage attribute and returns the average mileage of
 all the vehicles in the list.*/
-data class Car(val registration: String, val mileage: Double)
-fun car():Double{
- val car1 = Car("KDH-186", 6000.9)
- val car2 = Car("KDH-187", 7000.9)
- val car3 = Car("KDH-156", 9000.9)
- val car4 = Car("KDH-186", 90000.9)
- val car5 = Car("KDH-186", 168000.9)
-  var carList = listOf(car1, car2, car3, car4, car5)
-//carList.filter { car -> car }
-// for (car in carList){
- var avarage = 0.0
- carList.forEach { car ->
-  avarage += (car.mileage) / carList.size
+data class Car(val registration: String, val mileage: Int)
+fun car(cars: List<Car>):Int{
+ var avarage = 0
+ cars.forEach { car ->
+  avarage += (car.mileage / cars.size)
  }
  return avarage
 }
 
+fun secondOccurenceIndex(list: Collection<Int>){
+ list.forEachIndexed { index, element ->
+  println("${index}: ${element}")
+//  if(element === 33){
+//  }
+ }
+}
 
 
